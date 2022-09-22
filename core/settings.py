@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "cloudinary",
     # local
     "users.apps.UsersConfig",
+    "website.apps.WebsiteConfig",
     # third party that is recommended to be in the end
     'django_cleanup.apps.CleanupConfig',
 ]
@@ -135,9 +136,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -202,9 +203,9 @@ CLOUDINARY_API_SECRET = env("CLOUDINARY_API_SECRET")
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": CLOUDINARY_NAME,
     "API_KEY": CLOUDINARY_API_KEY,
-    "API_SECRET": CLOUDINARY_API_KEY,
+    "API_SECRET": CLOUDINARY_API_SECRET,
 }
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 if ENVIRONMENT == "production":
     CLOUDINARY_API_PROXY = env("CLOUDINARY_API_PROXY")
