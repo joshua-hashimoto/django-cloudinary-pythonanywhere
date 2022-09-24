@@ -10,4 +10,4 @@ class WebsiteForm(forms.ModelForm):
         fields = ("title", "url", )
 
 
-SnapFormset = forms.inlineformset_factory(Website, Snap, fields=("snap",), can_delete=True)
+SnapFormset = forms.inlineformset_factory(Website, Snap, fields=("snap",), can_delete=True, extra=1)

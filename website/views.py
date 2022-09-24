@@ -33,6 +33,7 @@ class WebsiteCreateView(LoginRequiredMixin, CreateView):
         context = self.get_context_data(form=form)
         formset = context["formset"]
         if formset.is_valid():
+            print(formset)
             response = super().form_valid(form)
             formset.instance = self.object
             formset.save()

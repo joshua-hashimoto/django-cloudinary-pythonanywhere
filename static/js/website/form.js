@@ -1,20 +1,24 @@
-$(function () {
-    var totalManageElement = $("input#id_file_set-TOTAL_FORMS");
-    var currentFileCount = parseInt(totalManageElement.val());
-    $("button#add-snap").on("click", function () {
-        var nameElement = $("<input>", {
-            type: "name",
-            name: "file_set-" + currentFileCount + "-name",
-            id: "id_file_set-" + currentFileCount + "-name",
-        });
-        var fileElement = $("<input>", {
-            type: "file",
-            name: "file_set-" + currentFileCount + "-src",
-            id: "id_file_set-" + currentFileCount + "-src",
-        });
-        $("div#file-area").append(nameElement);
-        $("div#file-area").append(fileElement);
-        currentFileCount += 1;
-        totalManageElement.attr("value", currentFileCount);
-    });
-});
+const addSnapButton = document.querySelector("#add-snap");
+const totalForms = document.querySelector("#id_snaps-TOTAL_FORMS");
+const appendTarget = document.querySelector("#snap-form-list");
+
+const addForm = (event) => {
+    event.preventDefault();
+
+    const snapForms = document.querySelectorAll(".snap-form");
+    let formNum = snapForms.length;
+
+    const newSnapForm = snapForms[0].cloneNode(true);
+    const formRegex = new RegExp(`snaps-(\\d){1}-`, "g");
+
+    newSnapForm.innerHTML = newSnapForm.innerHTML.replace(
+        formRegex,
+        `snaps-${formNum}-`
+    );
+
+    appendTarget.append(newSnapForm);
+
+    totalForms.setAttribute("value", `${formNum + 1}`);
+};
+
+addSnapButton.addEventListener("click", addForm);
