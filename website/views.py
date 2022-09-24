@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
 
 from website.forms import WebsiteForm, SnapFormset
@@ -18,7 +19,7 @@ class WebsiteDetailView(DetailView):
     template_name = "website/detail.html"
 
 
-class WebsiteCreateView(CreateView):
+class WebsiteCreateView(LoginRequiredMixin, CreateView):
     model = Website
     template_name: str = "website/create.html"
     form_class = WebsiteForm

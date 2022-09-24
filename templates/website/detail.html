@@ -7,7 +7,7 @@
 
 {% block content %}
 <div>
-    <a class="btn btn-primary" href="{% url 'website:list' %}">Back</a>
+    {% include "widgets/back_to_list_button.html" %}
     <h1>{{ object.title }}</h1>
 
     <ul>

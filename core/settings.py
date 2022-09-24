@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     # local
     "users.apps.UsersConfig",
     "website.apps.WebsiteConfig",
+    "accounts.apps.AccountsConfig",
     # third party that is recommended to be in the end
     'django_cleanup.apps.CleanupConfig',
 ]
@@ -215,5 +216,6 @@ if ENVIRONMENT == "production":
     )
 
 
-# static-precompiler
-STATIC_PRECOMPILER_ROOT = "compiled"
+# login
+LOGIN_URL = "accounts:login"
+LOGIN_REDIRECT_URL = "website:list"

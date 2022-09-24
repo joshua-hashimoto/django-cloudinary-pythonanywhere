@@ -1,0 +1,15 @@
+<header id="header" class="navbar bg-gray">
+    <section class="navbar-section">
+        <a href="{% url "website:list" %}" class="navbar-brand mr-2">Django + Cloudinary + PythonAnywhere</a>
+    </section>
+    <section class="navbar-section header-section">
+        {% if user.is_authenticated %}
+        <span>{{ user.username }}</span>
+        <a href="{% url 'website:create' %}" class="btn btn-primary">作成</a>
+        {% include "accounts/logout_modal.html" %}
+        {% else %}
+        <a href="{% url 'accounts:signup' %}" class="btn btn-primary">アカウント作成</a>
+        <a href="{% url 'accounts:login' %}" class="btn">ログイン</a>
+        {% endif %}
+    </section>
+</header>

@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+{% load widget_tweaks %}
+
+{% block styles %}{% endblock styles %}
+
+{% block content %}
+{% include "widgets/back_to_list_button.html" %}
+<h2>ユーザー作成</h2>
+{% include "accounts/widgets/auth_form.html" %}
+{% endblock content %}
+
+{% block js %}{% endblock js %}

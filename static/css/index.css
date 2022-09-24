@@ -1,3 +1,19 @@
+html {
+    box-sizing: border-box;
+}
+
+#header {
+    padding: 1rem;
+}
+
+.header-section {
+    gap: 0.4rem;
+}
+
 #main {
     margin-top: 4rem;
+}
+
+#logout_submit_modal {
+    display: inline;
 }
