@@ -4,6 +4,7 @@ import operator
 
 from django.db import models
 from django.db.models import Q
+from django.urls import reverse
 
 from core.additional.models import CoreModel
 
@@ -50,9 +51,13 @@ class Website(CoreModel):
     class Meta:
         verbose_name = "WEBサイト"
         verbose_name_plural = "WEBサイト"
+        ordering = ("-timestamp", )
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("website:detail", kwargs={"pk": self.pk})
 
 
 class SnapQueryset(models.QuerySet):

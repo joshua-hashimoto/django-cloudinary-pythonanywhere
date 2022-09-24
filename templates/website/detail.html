@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/website/detail.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div>
+    <a class="btn btn-primary" href="{% url 'website:list' %}">Back</a>
+    <h1>{{ object.title }}</h1>
+
+    <ul>
+        {% for snap in website.snaps.all %}
+        {% if snap.snap %}
+        <li>
+            <img src="{{ snap.snap.url }}" alt="{{ snap.snap.name }}">
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
+
+{% block js %}{% endblock js %}

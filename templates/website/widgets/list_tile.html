@@ -1,0 +1,12 @@
+<div class="tile">
+    <div class="tile-content">
+        <p class="tile-title h4">{{ website.title }}</p>
+        <p class="tile-subtitle">{{ website.url }}</p>
+        <div class="tile-action">
+            <a class="btn btn-primary btn-sm" href="{{ website.get_absolute_url }}">Open Detail</a>
+            <a class="btn btn-primary btn-sm" href="{{ website.url }}" target="_blank" rel="noopener noreferrer">Open
+                Url</a>
+        </div>
+    </div>
+</div>
+<div class="divider"></div>

@@ -156,6 +156,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    "static_precompiler.finders.StaticPrecompilerFinder",
 ]
 
 
@@ -212,3 +213,7 @@ if ENVIRONMENT == "production":
     cloudinary.config(
         api_proxy=CLOUDINARY_API_PROXY
     )
+
+
+# static-precompiler
+STATIC_PRECOMPILER_ROOT = "compiled"

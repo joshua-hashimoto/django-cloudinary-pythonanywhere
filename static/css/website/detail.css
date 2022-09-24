@@ -1,0 +1,12 @@
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+}

@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/website/list.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div>
+    {% for website in websites %}
+    <div class="list-cell">
+        {% include "website/widgets/list_tile.html" with website=website %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

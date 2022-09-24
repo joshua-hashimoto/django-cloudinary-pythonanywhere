@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block styles %}{% endblock styles %}
+
+{% block content %}
+{% include "website/widgets/form.html" %}
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'js/website/form.js' %}"></script>
+{% endblock js %}
