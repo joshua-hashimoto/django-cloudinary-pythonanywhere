@@ -8,7 +8,7 @@ const addForm = (event) => {
     const snapForms = document.querySelectorAll(".snap-form");
     let formNum = snapForms.length;
 
-    const newSnapForm = snapForms[0].cloneNode(true);
+    const newSnapForm = snapForms[snapForms.length - 1].cloneNode(true);
     const formRegex = new RegExp(`snaps-(\\d){1}-`, "g");
 
     newSnapForm.innerHTML = newSnapForm.innerHTML.replace(

@@ -1,13 +1,20 @@
+{% load widget_tweaks %}
+
 <form action="" method="post" enctype="multipart/form-data" id="form-container">
+    {% if form.errors %}
+    <ul>
+        {% for error in form.errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     {% csrf_token %}
     {{ form.as_p }}
 
     {{ formset.management_form }}
     <div id="snap-form-list">
         {% for snap_form in formset %}
-        <div class="snap-form">
-            {{ snap_form.as_p }}
-        </div>
+        {% include "website/widgets/snap_form.html" with form=snap_form %}
         {% endfor %}
     </div>
 

@@ -4,7 +4,12 @@
 {% block styles %}{% endblock styles %}
 
 {% block content %}
-{% include "website/widgets/form.html" %}
+<div>
+    {% include "widgets/back_to_list_button.html" %}
+    {% include "website/widgets/form.html" %}
+</div>
 {% endblock content %}
 
-{% block js %}{% endblock js %}
+{% block js %}
+<script src="{% static 'js/website/form.js' %}"></script>
+{% endblock js %}

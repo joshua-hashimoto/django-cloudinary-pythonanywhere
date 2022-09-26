@@ -19,6 +19,8 @@
         {% endif %}
         {% endfor %}
     </ul>
+
+    <a class="btn btn-primary" href="{% url 'website:update' pk=object.pk %}">Edit</a>
 </div>
 {% endblock content %}
 
