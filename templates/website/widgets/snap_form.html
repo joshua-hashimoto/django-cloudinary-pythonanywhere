@@ -2,16 +2,25 @@
     {% for field in form.hidden_fields %}
     {{ field }}
     {% endfor %}
-    {% if form.instance.snap %}
-    <a href="{{ form.instance.snap.url }}">{{ form.instance.snap.name }}</a>
-    {% endif %}
-    <div class="form-group">
-        <input type="file" name="{{ form.snap.html_name }}" id="{{ form.snap.id_for_label }}" accept="image/*">
-        {% if form.instance.pk and form.instance.snap %}
-        <label class="form-checkbox" for="{{ form.DELETE.id_for_label }}">
-            <input type="checkbox" id="{{ form.DELETE.id_for_label }}" name="{{form.DELETE.html_name}}">
-            <i class="form-icon" for="{{ form.DELETE.id_for_label }}"></i>{{form.DELETE.label}}
-        </label>
-        {% endif %}
+    <div class="grid">
+        <div class="s6">
+            <div class="field label border prefix suffix small">
+                <i>attach_file</i>
+                <label for="{{ form.snap.id_for_label }}">{{ form.snap.label }}</label>
+                <input type="text">
+                <input type="file" name="{{ form.snap.html_name }}" id="{{ form.snap.id_for_label }}">
+                {% if form.instance.snap %}
+                <img class="rounded" src="{{ form.instance.snap.url }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="s2">
+            {% if form.instance.pk and form.instance.snap %}
+            <label class="form-checkbox" for="{{ form.DELETE.id_for_label }}">
+                <input type="checkbox" id="{{ form.DELETE.id_for_label }}" name="{{form.DELETE.html_name}}">
+                {{form.DELETE.label}}
+            </label>
+            {% endif %}
+        </div>
     </div>
 </div>

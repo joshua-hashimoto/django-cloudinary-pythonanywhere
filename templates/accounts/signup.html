@@ -5,8 +5,10 @@
 
 {% block content %}
 {% include "widgets/back_to_list_button.html" %}
-<h2>ユーザー作成</h2>
-{% include "accounts/widgets/auth_form.html" %}
+<div class="container">
+    <h4>ユーザー作成</h4>
+    {% include "accounts/widgets/auth_form.html" %}
+</div>
 {% endblock content %}
 
 {% block js %}{% endblock js %}

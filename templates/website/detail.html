@@ -8,19 +8,22 @@
 {% block content %}
 <div>
     {% include "widgets/back_to_list_button.html" %}
-    <h1>{{ object.title }}</h1>
+    <div class="container">
+        <h4>{{ object.title }}</h4>
+        <a href="{{ object.url }}" target="_blank" rel="noopener noreferrer">Open Url</a>
 
-    <ul>
-        {% for snap in website.snaps.all %}
-        {% if snap.snap %}
-        <li>
+        {% if object.snaps.all|length > 0 %}
+        <nav id="snaps" class="row scroll">
+            {% for snap in website.snaps.all %}
+            {% if snap.snap %}
             <img src="{{ snap.snap.url }}" alt="{{ snap.snap.name }}">
-        </li>
+            {% endif %}
+            {% endfor %}
+        </nav>
         {% endif %}
-        {% endfor %}
-    </ul>
+    </div>
 
-    <a class="btn btn-primary" href="{% url 'website:update' pk=object.pk %}">Edit</a>
+    <a class="small chip primary" href="{% url 'website:update' pk=object.pk %}">Edit</a>
 </div>
 {% endblock content %}
 

@@ -3,10 +3,6 @@ img {
     object-fit: cover;
 }
 
-ul {
-    display: flex;
-}
-
-li {
-    list-style: none;
+#snaps {
+    height: 500px;
 }

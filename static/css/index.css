@@ -10,10 +10,10 @@ html {
     gap: 0.4rem;
 }
 
-#main {
-    margin-top: 4rem;
-}
-
 #logout_submit_modal {
     display: inline;
+}
+
+.container {
+    margin: 16rem 8rem;
 }

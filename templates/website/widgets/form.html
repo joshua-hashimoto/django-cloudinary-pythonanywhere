@@ -2,20 +2,28 @@
 
 <form action="" method="post" enctype="multipart/form-data" id="form-container">
     {% if form.errors %}
-    <ul>
-        {% for error in form.errors %}
-        <li>{{error}}</li>
-        {% endfor %}
-    </ul>
+    {% for error in form.errors %}
+    <article class="red5 white-text">
+        <p>{{ error }}</p>
+    </article>
+    {% endfor %}
     {% endif %}
     {% csrf_token %}
-    {{ form.as_p }}
-
-    {{ formset.management_form }}
-    <div id="snap-form-list">
-        {% for snap_form in formset %}
-        {% include "website/widgets/snap_form.html" with form=snap_form %}
+    <div class="container">
+        {% for field in form %}
+        <div class="field label border {% if field.errors %}invalid{% endif %}">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% include "widgets/field_error.html" with field=field %}
+        </div>
         {% endfor %}
+
+        {{ formset.management_form }}
+        <div id="snap-form-list">
+            {% for snap_form in formset %}
+            {% include "website/widgets/snap_form.html" with form=snap_form %}
+            {% endfor %}
+        </div>
     </div>
 
     <div>

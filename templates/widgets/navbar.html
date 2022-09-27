@@ -1,15 +1,21 @@
-<header id="header" class="navbar bg-gray">
-    <section class="navbar-section">
-        <a href="{% url "website:list" %}" class="navbar-brand mr-2">Django + Cloudinary + PythonAnywhere</a>
-    </section>
-    <section class="navbar-section header-section">
+<header class="surface-variant">
+    <nav>
+        <h5 class="max">
+            <a href="{% url "website:list" %}">Django + Cloudinary + PythonAnywhere</a>
+        </h5>
         {% if user.is_authenticated %}
         <span>{{ user.username }}</span>
-        <a href="{% url 'website:create' %}" class="btn btn-primary">作成</a>
+        <a class="small chip primary" href="{% url 'website:create' %}">
+            作成
+        </a>
         {% include "accounts/logout_modal.html" %}
         {% else %}
-        <a href="{% url 'accounts:signup' %}" class="btn btn-primary">アカウント作成</a>
-        <a href="{% url 'accounts:login' %}" class="btn">ログイン</a>
+        <a class="small chip primary" href="{% url 'accounts:signup' %}">
+            アカウント作成
+        </a>
+        <a class="small chip primary" href="{% url 'accounts:login' %}">
+            ログイン
+        </a>
         {% endif %}
-    </section>
+    </nav>
 </header>
